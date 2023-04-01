@@ -38,7 +38,13 @@ public class App {
 		for (Map<String, String> filme : listaDeFilmes) {
 			String urlImagem = filme.get("image");
 			String titulo = filme.get("title");
-			
+			double classificacao = Double.parseDouble(filme.get("imDbRating"));
+			String textoFigurinha = "";
+			if(classificacao >= 8 ) {
+				textoFigurinha = "TOPZERA";
+			}else {
+				textoFigurinha = "HUMMMMM...";
+			}
 			InputStream inputStream = new URL(urlImagem).openStream();
 			String nomeArquivo = "figurinhas/"+titulo + ".png";
 			
