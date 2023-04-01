@@ -15,8 +15,9 @@ public class App {
 
 	public static void main(String[] args) throws Exception {
 		// fazer uma conexao HTTP e buscar os top 250 filmes
-
-		String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
+		//https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json
+		
+		String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/MostPopularMovies.json";
 		URI endereco = URI.create(url);
 		var client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
@@ -41,7 +42,7 @@ public class App {
 			InputStream inputStream = new URL(urlImagem).openStream();
 			String nomeArquivo = "figurinhas/"+titulo + ".png";
 			
-			geradora.cria(inputStream,nomeArquivo);
+			geradora.cria(inputStream,nomeArquivo,"TOPZERA");
 			
 			System.out.println(titulo);
 			System.out.println();
