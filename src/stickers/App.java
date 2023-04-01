@@ -1,5 +1,6 @@
 package stickers;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
@@ -29,16 +30,17 @@ public class App {
 		var parser = new JsonParser();
 		List<Map<String, String>> listaDeFilmes = parser.parse(body);
 
+		var diretorio = new File("figurinhas/");
+		diretorio.mkdir();
 		// exibir e manipular os dados
-
+		var geradora = new GeradorDeFigurinhas();
 		for (Map<String, String> filme : listaDeFilmes) {
 			String urlImagem = filme.get("image");
 			String titulo = filme.get("title");
+			
 			InputStream inputStream = new URL(urlImagem).openStream();
+			String nomeArquivo = "figurinhas/"+titulo + ".png";
 			
-			String nomeArquivo = "saida/"+titulo + ".png";
-			
-			var geradora = new GeradorDeFigurinhas();
 			geradora.cria(inputStream,nomeArquivo);
 			
 			System.out.println(titulo);
