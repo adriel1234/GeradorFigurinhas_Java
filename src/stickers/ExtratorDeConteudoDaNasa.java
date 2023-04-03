@@ -13,6 +13,7 @@ public class ExtratorDeConteudoDaNasa  implements ExtratorDeConteudo {
 		List<Map<String, String>> listaDeAtributos= parser.parse(json);
 		
 		
+		
 		List<Conteudo> conteudos =  new ArrayList<>();
 		
 		//popular a lista de conteudos 
